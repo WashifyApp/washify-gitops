@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-notification-service
+  namespace: argocd
+  labels:
+    env: prod
+    service: notification-service
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/WashifyApp/notification-service.git
+    targetRevision: main
+    path: helm
+    helm:
+      valueFiles:
+        - https://raw.githubusercontent.com/WashifyApp/washify-gitops/main/prod/apps/notification-service/values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: washify-prod-ns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
