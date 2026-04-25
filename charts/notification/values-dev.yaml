@@ -48,3 +48,16 @@ image:
 resources:
   limits: { cpu: 200m, memory: 256Mi }
 
+config:
+  mongoUrl: "mongodb://mongodb.dev-ns.svc.cluster.local:27017/washify"
+  smtpServer: "smtp.gmail.com"
+  smtpPort: "587"
+
+secret:
+  jwtSecret: "dev-secret-key"
+  smtpUser: "dev-user"
+  smtpPass: "dev-pass"
+  twilioSid: "AC-dev"
+  twilioToken: "token-dev"
+  twilioPhone: "+1234567890"
+

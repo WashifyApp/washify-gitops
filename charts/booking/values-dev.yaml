@@ -48,3 +48,10 @@ image:
 resources:
   limits: { cpu: 200m, memory: 256Mi }
 
+config:
+  mongoUrl: "mongodb://mongodb.dev-ns.svc.cluster.local:27017/washify"
+  notificationUrl: "http://notification-service.dev-ns.svc.cluster.local:8000"
+
+secret:
+  jwtSecret: "dev-secret-key"
+

@@ -40,6 +40,12 @@ livenessProbe:
   initialDelaySeconds: 10
   periodSeconds: 15
 
+config:
+  mongoUrl: "mongodb://mongodb.prod-ns.svc.cluster.local:27017/washify"
+
+secret:
+  jwtSecret: "prod-secret-key"
+
 
 
 

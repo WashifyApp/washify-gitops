@@ -49,3 +49,9 @@ image:
 resources:
   limits: { cpu: 1000m, memory: 1Gi }
 
+config:
+  mongoUrl: "mongodb://mongodb.prod-ns.svc.cluster.local:27017/washify"
+
+secret:
+  jwtSecret: "prod-secret-key"
+
