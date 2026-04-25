@@ -1,10 +1,8 @@
-# SELF-CONTAINED PROD VALUES (NO COMMON VALUES.YAML)
-# -------------------------------------------------
-replicaCount: 1
+replicaCount: 3
 namespace: prod-ns
 
 image:
-  repository: aravindroy1/washify-notification
+  repository: ghcr.io/washifyapp/notification-service
   tag: latest
   pullPolicy: Always
 
@@ -18,8 +16,8 @@ resources:
     cpu: "100m"
     memory: "128Mi"
   limits:
-    cpu: "500m"
-    memory: "512Mi"
+    cpu: "1000m"
+    memory: "1Gi"
 
 hpa:
   enabled: true
@@ -32,28 +30,6 @@ configMap:
 
 secret:
   name: washify-secret
-
-livenessProbe:
-  path: /docs
-  port: 8000
-  initialDelaySeconds: 10
-  periodSeconds: 15
-
-
-# --- OVERRIDES FOR PROD ---
-replicaCount: 3
-image:
-  repository: ghcr.io/washifyapp/notification-service
-  tag: latest
-resources:
-  limits: { cpu: 1000m, memory: 1Gi }
-
-config:
-  mongoUrl: "mongodb://mongodb:27017"
-  smtpServer: "smtp.gmail.com"
-  smtpPort: "587"
-
-secret:
   jwtSecret: "prod-secret-key"
   smtpUser: "prod-user"
   smtpPass: "prod-pass"
@@ -61,3 +37,13 @@ secret:
   twilioToken: "token-prod"
   twilioPhone: "+1098765432"
 
+config:
+  mongoUrl: "mongodb://mongodb:27017"
+  smtpServer: "smtp.gmail.com"
+  smtpPort: "587"
+
+livenessProbe:
+  path: /docs
+  port: 8000
+  initialDelaySeconds: 10
+  periodSeconds: 15

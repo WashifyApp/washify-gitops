@@ -1,10 +1,8 @@
-# SELF-CONTAINED PROD VALUES (NO COMMON VALUES.YAML)
-# -------------------------------------------------
-replicaCount: 1
+replicaCount: 3
 namespace: prod-ns
 
 image:
-  repository: aravindroy1/washify-booking
+  repository: ghcr.io/washifyapp/booking-service
   tag: latest
   pullPolicy: Always
 
@@ -18,8 +16,8 @@ resources:
     cpu: "100m"
     memory: "128Mi"
   limits:
-    cpu: "500m"
-    memory: "512Mi"
+    cpu: "1000m"
+    memory: "1Gi"
 
 hpa:
   enabled: true
@@ -32,26 +30,14 @@ configMap:
 
 secret:
   name: washify-secret
+  jwtSecret: "prod-secret-key"
+
+config:
+  mongoUrl: "mongodb://mongodb:27017"
+  notificationUrl: "http://notification-service.prod-ns.svc.cluster.local:8000"
 
 livenessProbe:
   path: /docs
   port: 8000
   initialDelaySeconds: 10
   periodSeconds: 15
-
-
-# --- OVERRIDES FOR PROD ---
-replicaCount: 3
-image:
-  repository: ghcr.io/washifyapp/booking-service
-  tag: latest
-resources:
-  limits: { cpu: 1000m, memory: 1Gi }
-
-config:
-  mongoUrl: "mongodb://mongodb:27017"
-  notificationUrl: "http://notification-service.prod-ns.svc.cluster.local:8000"
-
-secret:
-  jwtSecret: "prod-secret-key"
-

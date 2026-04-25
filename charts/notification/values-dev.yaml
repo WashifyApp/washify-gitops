@@ -1,10 +1,8 @@
-# SELF-CONTAINED DEV VALUES (NO COMMON VALUES.YAML)
-# ------------------------------------------------
 replicaCount: 1
 namespace: dev-ns
 
 image:
-  repository: aravindroy1/washify-notification
+  repository: ghcr.io/washifyapp/notification-service
   tag: latest
   pullPolicy: Always
 
@@ -18,8 +16,8 @@ resources:
     cpu: "100m"
     memory: "128Mi"
   limits:
-    cpu: "500m"
-    memory: "512Mi"
+    cpu: "200m"
+    memory: "256Mi"
 
 hpa:
   enabled: true
@@ -32,28 +30,6 @@ configMap:
 
 secret:
   name: washify-secret
-
-livenessProbe:
-  path: /docs
-  port: 8000
-  initialDelaySeconds: 10
-  periodSeconds: 15
-
-
-# --- OVERRIDES FOR DEV ---
-replicaCount: 1
-image:
-  repository: ghcr.io/washifyapp/notification-service
-  tag: latest
-resources:
-  limits: { cpu: 200m, memory: 256Mi }
-
-config:
-  mongoUrl: "mongodb://mongodb:27017"
-  smtpServer: "smtp.gmail.com"
-  smtpPort: "587"
-
-secret:
   jwtSecret: "dev-secret-key"
   smtpUser: "dev-user"
   smtpPass: "dev-pass"
@@ -61,3 +37,13 @@ secret:
   twilioToken: "token-dev"
   twilioPhone: "+1234567890"
 
+config:
+  mongoUrl: "mongodb://mongodb:27017"
+  smtpServer: "smtp.gmail.com"
+  smtpPort: "587"
+
+livenessProbe:
+  path: /docs
+  port: 8000
+  initialDelaySeconds: 10
+  periodSeconds: 15
