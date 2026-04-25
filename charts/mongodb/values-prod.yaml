@@ -1,0 +1,16 @@
+replicaCount: 3
+image:
+  repository: mongo
+  tag: "6.0"
+service:
+  port: 27017
+resources:
+  requests:
+    cpu: 500m
+    memory: 1Gi
+  limits:
+    cpu: 1000m
+    memory: 2Gi
+storage:
+  className: "nfs-csi"
+  size: "50Gi"
