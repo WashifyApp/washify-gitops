@@ -1,6 +1,4 @@
-# SELF-CONTAINED PROD VALUES (NO COMMON VALUES.YAML)
-# -------------------------------------------------
-replicaCount: 1
+replicaCount: 3
 namespace: prod-ns
 
 image:
@@ -11,34 +9,18 @@ image:
 service:
   type: ClusterIP
   port: 80
-  targetPort: 8080
+  targetPort: 80
 
 resources:
   requests:
-    cpu: "50m"
-    memory: "64Mi"
+    cpu: "100m"
+    memory: "128Mi"
   limits:
-    cpu: "200m"
-    memory: "256Mi"
-
-hpa:
-  enabled: true
-  minReplicas: 1
-  maxReplicas: 3
-  cpuUtilization: 80
+    cpu: "500m"
+    memory: "512Mi"
 
 livenessProbe:
   path: /
-  port: 8080
-  initialDelaySeconds: 5
-  periodSeconds: 10
-
-
-# --- OVERRIDES FOR PROD ---
-replicaCount: 3
-image:
-  repository: ghcr.io/washifyapp/frontend-service
-  tag: latest
-resources:
-  limits: { cpu: 1000m, memory: 1Gi }
-
+  port: 80
+  initialDelaySeconds: 30
+  periodSeconds: 15

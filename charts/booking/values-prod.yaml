@@ -2,7 +2,7 @@ replicaCount: 3
 namespace: prod-ns
 
 image:
-  repository: ghcr.io/washifyapp/booking-service
+  repository: aravindroy1/washify-booking
   tag: latest
   pullPolicy: Always
 

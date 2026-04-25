@@ -2,7 +2,7 @@ replicaCount: 1
 namespace: dev-ns
 
 image:
-  repository: ghcr.io/washifyapp/auth-service
+  repository: aravindroy1/washify-auth
   tag: latest
   pullPolicy: Always
 

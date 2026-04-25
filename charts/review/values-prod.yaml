@@ -2,7 +2,7 @@ replicaCount: 3
 namespace: prod-ns
 
 image:
-  repository: ghcr.io/washifyapp/review-service
+  repository: aravindroy1/washify-review
   tag: latest
   pullPolicy: Always
 

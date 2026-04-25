@@ -2,7 +2,7 @@ replicaCount: 3
 namespace: prod-ns
 
 image:
-  repository: ghcr.io/washifyapp/notification-service
+  repository: aravindroy1/washify-notification
   tag: latest
   pullPolicy: Always
 
