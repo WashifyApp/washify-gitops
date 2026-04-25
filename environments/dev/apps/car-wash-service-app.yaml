@@ -3,20 +3,17 @@ kind: Application
 metadata:
   name: dev-car-wash-service
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/WashifyApp/washify-gitops.git'
+    repoURL: 'https://github.com/WashifyApp/car-wash-service.git'
     targetRevision: main
-    path: charts/base-service
+    path: helm
     helm:
-      values: |
-        image:
-          repository: ghcr.io/washifyapp/car-wash-service
-          tag: latest
-        containerPort: 8082
       valueFiles:
-        - ../../global-values/dev-values.yaml
+        - values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: dev-env
@@ -24,3 +21,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

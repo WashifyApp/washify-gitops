@@ -3,21 +3,17 @@ kind: Application
 metadata:
   name: prod-review-service
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/WashifyApp/washify-gitops.git'
+    repoURL: 'https://github.com/WashifyApp/review-service.git'
     targetRevision: main
-    path: charts/base-service
+    path: helm
     helm:
-      values: |
-        image:
-          repository: ghcr.io/washifyapp/review-service
-          tag: latest
-        containerPort: 8084
-        replicaCount: 3
       valueFiles:
-        - ../../global-values/prod-values.yaml
+        - values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: prod-env
@@ -25,3 +21,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

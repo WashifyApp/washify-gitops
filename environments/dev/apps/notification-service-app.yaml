@@ -3,20 +3,17 @@ kind: Application
 metadata:
   name: dev-notification-service
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/WashifyApp/washify-gitops.git'
+    repoURL: 'https://github.com/WashifyApp/notification-service.git'
     targetRevision: main
-    path: charts/base-service
+    path: helm
     helm:
-      values: |
-        image:
-          repository: ghcr.io/washifyapp/notification-service
-          tag: latest
-        containerPort: 8083
       valueFiles:
-        - ../../global-values/dev-values.yaml
+        - values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: dev-env
@@ -24,3 +21,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
