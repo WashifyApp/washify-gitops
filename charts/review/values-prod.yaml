@@ -26,10 +26,10 @@ hpa:
   cpuUtilization: 80
 
 configMap:
-  name: washify-config
+  name: review-config
 
 secret:
-  name: washify-secret
+  name: review-secret
   jwtSecret: "prod-secret-key"
 
 config:

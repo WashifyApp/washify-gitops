@@ -26,10 +26,10 @@ hpa:
   cpuUtilization: 80
 
 configMap:
-  name: washify-config
+  name: car-wash-config
 
 secret:
-  name: washify-secret
+  name: car-wash-secret
   jwtSecret: "prod-secret-key"
 
 config:

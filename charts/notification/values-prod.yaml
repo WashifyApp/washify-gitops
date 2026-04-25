@@ -26,10 +26,10 @@ hpa:
   cpuUtilization: 80
 
 configMap:
-  name: washify-config
+  name: notification-config
 
 secret:
-  name: washify-secret
+  name: notification-secret
   jwtSecret: "prod-secret-key"
   smtpUser: "prod-user"
   smtpPass: "prod-pass"

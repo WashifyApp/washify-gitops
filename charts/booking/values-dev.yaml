@@ -26,10 +26,10 @@ hpa:
   cpuUtilization: 80
 
 configMap:
-  name: washify-config
+  name: booking-config
 
 secret:
-  name: washify-secret
+  name: booking-secret
   jwtSecret: "dev-secret-key"
 
 config:
