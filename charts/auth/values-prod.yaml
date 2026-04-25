@@ -1,6 +1,6 @@
 # SELF-CONTAINED PROD VALUES (NO COMMON VALUES.YAML)
 # -------------------------------------------------
-replicaCount: 1
+replicaCount: 3
 namespace: prod-ns
 
 image:
@@ -41,11 +41,5 @@ livenessProbe:
   periodSeconds: 15
 
 
-# --- OVERRIDES FOR PROD ---
-replicaCount: 3
-image:
-  repository: ghcr.io/washifyapp/auth-service
-  tag: latest
-resources:
-  limits: { cpu: 1000m, memory: 1Gi }
+
 
