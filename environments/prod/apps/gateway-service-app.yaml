@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-gateway
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/WashifyApp/washify-gitops.git'
+    targetRevision: main
+    path: charts/gateway
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: prod-env
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
