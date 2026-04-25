@@ -11,8 +11,5 @@ spec:
     port: 80
     allowedRoutes:
       namespaces:
-        from: Selector
-        selector:
-          matchLabels:
-            gateway: washify-exposed  # Only namespaces with this label are allowed
+        from: All
 
