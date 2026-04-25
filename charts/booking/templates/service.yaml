@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: washify-dev-ns
+  namespace: {{ .Values.namespace }}
   name: booking-service
 spec:
   type: {{ .Values.service.type }}

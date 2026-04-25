@@ -1,6 +1,7 @@
 # SELF-CONTAINED DEV VALUES (NO COMMON VALUES.YAML)
 # ------------------------------------------------
 replicaCount: 1
+namespace: dev-ns
 
 image:
   repository: aravindroy1/washify-auth

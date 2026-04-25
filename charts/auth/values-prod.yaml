@@ -1,6 +1,7 @@
 # SELF-CONTAINED PROD VALUES (NO COMMON VALUES.YAML)
 # -------------------------------------------------
 replicaCount: 1
+namespace: prod-ns
 
 image:
   repository: aravindroy1/washify-auth
