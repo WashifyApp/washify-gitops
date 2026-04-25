@@ -1,6 +1,49 @@
+# SELF-CONTAINED PROD VALUES (NO COMMON VALUES.YAML)
+# -------------------------------------------------
+replicaCount: 1
+
+image:
+  repository: aravindroy1/washify-booking
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 8000
+  targetPort: 8000
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  cpuUtilization: 80
+
+configMap:
+  name: washify-config
+
+secret:
+  name: washify-secret
+
+livenessProbe:
+  path: /docs
+  port: 8000
+  initialDelaySeconds: 10
+  periodSeconds: 15
+
+
+# --- OVERRIDES FOR PROD ---
 replicaCount: 3
 image:
   repository: ghcr.io/washifyapp/booking-service
   tag: latest
 resources:
   limits: { cpu: 1000m, memory: 1Gi }
+
