@@ -1,14 +1,22 @@
 replicaCount: 3
+
 image:
   repository: mongo
   tag: "6.0"
+
 service:
   port: 27017
+
 resources:
-  requests: { cpu: 500m, memory: 1Gi }
-  limits: { cpu: 1000m, memory: 2Gi }
+  requests:
+    cpu: 500m
+    memory: 1Gi
+  limits:
+    cpu: 1000m
+    memory: 2Gi
+
 storage:
-  className: "nfs-csi"
-  size: "50Gi"
-  server: "10.0.1.200"       # <--- Edit Prod IP here
-  path: "/exports/prod"      # <--- Edit Prod Path here
+  className: nfs-csi
+  size: 50Gi
+  server: 10.0.1.200
+  path: /exports/prod
