@@ -1,0 +1,10 @@
+replicaCount: 1
+image:
+  repository: ghcr.io/washifyapp/auth-service
+  pullPolicy: IfNotPresent
+  tag: "latest"
+service:
+  type: ClusterIP
+  port: 80
+containerPort: 8080
+env: []
