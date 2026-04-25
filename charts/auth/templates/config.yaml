@@ -4,4 +4,4 @@ metadata:
   name: {{ .Values.configMap.name }}
   namespace: {{ .Values.namespace }}
 data:
-  MONGO_URL: {{ .Values.config.mongoUrl | default "mongodb://mongodb:27017" | quote }}
+  MONGO_URL: {{ if .Values.config }}{{ .Values.config.mongoUrl | quote }}{{ else }}"mongodb://mongodb:27017"{{ end }}
