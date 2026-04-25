@@ -1,6 +1,5 @@
 replicaCount: 3
-namespace: dev-ns
-.
+namespace: prod-ns
 
 image:
   repository: mongo
