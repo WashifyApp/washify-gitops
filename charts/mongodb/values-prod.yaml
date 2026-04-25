@@ -17,6 +17,6 @@ resources:
 
 storage:
   className: nfs-csi
-  size: 50Gi
-  server: 10.0.1.200
-  path: /exports/prod
+  size: 20Gi
+  server: 10.0.0.140
+  path: /Washify-data
