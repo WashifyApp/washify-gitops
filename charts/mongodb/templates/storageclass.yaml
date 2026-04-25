@@ -1,11 +1,11 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: nfs-csi
+  name: {{ .Values.storage.className }}
 provisioner: nfs.csi.k8s.io
 parameters:
-  server: 10.0.1.200        # REPLACE WITH YOUR PROD NFS IP
-  share: /exports/prod
+  server: {{ .Values.storage.server }}
+  share: {{ .Values.storage.path }}
 reclaimPolicy: Retain
 volumeBindingMode: Immediate
 mountOptions:
