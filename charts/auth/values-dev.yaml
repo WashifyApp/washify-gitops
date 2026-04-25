@@ -51,7 +51,7 @@ resources:
   limits: { cpu: 200m, memory: 256Mi }
 
 config:
-  mongoUrl: "mongodb://mongodb.dev-ns.svc.cluster.local:27017/washify"
+  mongoUrl: "mongodb://mongodb:27017"
 
 secret:
   jwtSecret: "dev-secret-key"
