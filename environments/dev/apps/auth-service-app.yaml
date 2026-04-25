@@ -1,18 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: dev-auth-service
+  name: dev-auth
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/WashifyApp/auth-service.git'
+    repoURL: 'https://github.com/WashifyApp/washify-gitops.git'
     targetRevision: main
-    path: helm
+    path: charts/auth
     helm:
       valueFiles:
+        - values.yaml
         - values-dev.yaml
   destination:
     server: 'https://kubernetes.default.svc'
@@ -21,5 +20,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true

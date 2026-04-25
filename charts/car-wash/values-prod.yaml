@@ -1,0 +1,6 @@
+replicaCount: 3
+image:
+  repository: ghcr.io/washifyapp/car-wash-service
+  tag: latest
+resources:
+  limits: { cpu: 1000m, memory: 1Gi }
