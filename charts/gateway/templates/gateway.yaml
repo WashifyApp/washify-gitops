@@ -7,6 +7,12 @@ spec:
   gatewayClassName: {{ .Values.gateway.className }}
   listeners:
   - name: http
-    protocol: {{ .Values.gateway.protocol }}
-    port: {{ .Values.gateway.port }}
+    protocol: HTTP
+    port: 80
+    allowedRoutes:
+      namespaces:
+        from: Selector
+        selector:
+          matchLabels:
+            gateway: washify-exposed  # Only namespaces with this label are allowed
 
