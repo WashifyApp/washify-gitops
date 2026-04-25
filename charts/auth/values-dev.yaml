@@ -32,6 +32,8 @@ configMap:
 
 secret:
   name: washify-secret
+  jwtSecret: mysupersecretkey
+
 
 livenessProbe:
   path: /docs
