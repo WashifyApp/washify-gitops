@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   namespace: {{ .Values.namespace }}
   name: frontend-deployment
@@ -7,6 +7,12 @@ metadata:
     app: frontend-service
 spec:
   replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: BlueGreen
+    blueGreen:
+      activeService: {{ include "frontend.fullname" . }}
+      previewService: {{ include "frontend.fullname" . }}-preview
+      autoPromotionEnabled: false # Requires manual approval in ArgoCD
   selector:
     matchLabels:
       app: frontend-service
