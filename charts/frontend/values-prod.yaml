@@ -3,7 +3,7 @@ namespace: prod-ns
 
 image:
   repository: aravindroy1/washify-frontend
-  tag: v2
+  tag: v1.0.0
   pullPolicy: Always
 
 service:
