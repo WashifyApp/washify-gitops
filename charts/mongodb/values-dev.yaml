@@ -17,7 +17,7 @@ resources:
     memory: 1Gi
 
 storage:
-  className: nfs-csi
+  className: washify-mongo-sc
   size: 5Gi
   server: 10.0.1.98
   path: /nfs-data
