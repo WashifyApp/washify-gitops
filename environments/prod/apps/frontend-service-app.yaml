@@ -27,3 +27,8 @@ spec:
     kind: Rollout
     jsonPointers:
     - /spec/replicas
+    - /status
+  - group: autoscaling
+    kind: HorizontalPodAutoscaler
+    jsonPointers:
+    - /spec/maxReplicas

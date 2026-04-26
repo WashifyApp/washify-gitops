@@ -21,8 +21,8 @@ resources:
 
 hpa:
   enabled: true
-  minReplicas: 1
-  maxReplicas: 3
+  minReplicas: 3
+  maxReplicas: 5
   cpuUtilization: 80
 
 livenessProbe:
