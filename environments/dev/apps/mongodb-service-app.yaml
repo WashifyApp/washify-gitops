@@ -16,7 +16,7 @@ spec:
         - values-dev.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: dev-env
+    namespace: dev-ns
   syncPolicy:
     automated:
       prune: true

@@ -9,10 +9,16 @@ spec:
     repoURL: 'https://github.com/WashifyApp/washify-gitops.git'
     targetRevision: main
     path: charts/gateway
+    helm:
+      valueFiles:
+        - values-dev.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: dev-env
+    namespace: dev-ns
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - RespectIgnoreDifferences=true
