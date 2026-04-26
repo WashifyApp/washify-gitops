@@ -8,7 +8,6 @@ metadata:
 spec:
   replicas: {{ .Values.replicaCount }}
   strategy:
-    type: BlueGreen
     blueGreen:
       activeService: frontend-service
       previewService: frontend-service-preview
