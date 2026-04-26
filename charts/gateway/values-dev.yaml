@@ -4,6 +4,6 @@ httproute:
 
 gateway:
   name: washify-gateway
-  className: kgateway
+  className: eg
   protocol: HTTP
   port: 80
