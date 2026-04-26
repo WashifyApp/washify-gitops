@@ -85,5 +85,16 @@ spec:
     backendRefs:
     - name: frontend-service
       port: 80
-
-
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /argocd
+    filters:
+    - type: URLRewrite
+      urlRewrite:
+        path:
+          type: ReplacePrefixMatch
+          replacePrefixMatch: /
+    backendRefs:
+    - name: argocd-server
+      port: 80
