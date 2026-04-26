@@ -1,0 +1,148 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-booking
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/WashifyApp/washify-gitops.git
+    targetRevision: HEAD
+    path: charts/booking
+    helm:
+      valueFiles:
+        - values-prod.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod-ns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-car-wash
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/WashifyApp/washify-gitops.git
+    targetRevision: HEAD
+    path: charts/car-wash
+    helm:
+      valueFiles:
+        - values-prod.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod-ns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-notification
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/WashifyApp/washify-gitops.git
+    targetRevision: HEAD
+    path: charts/notification
+    helm:
+      valueFiles:
+        - values-prod.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod-ns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-review
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/WashifyApp/washify-gitops.git
+    targetRevision: HEAD
+    path: charts/review
+    helm:
+      valueFiles:
+        - values-prod.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod-ns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        - /spec/replicas
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-mongodb
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/WashifyApp/washify-gitops.git
+    targetRevision: HEAD
+    path: charts/mongodb
+    helm:
+      valueFiles:
+        - values-prod.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: prod-ns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prod-gateway
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/WashifyApp/washify-gitops.git
+    targetRevision: HEAD
+    path: charts/gateway
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gateway-ns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
