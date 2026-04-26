@@ -9,7 +9,7 @@ image:
 service:
   type: ClusterIP
   port: 8000
-  targetPort: 8002
+  targetPort: 8000
 
 resources:
   requests:
@@ -37,6 +37,6 @@ config:
 
 livenessProbe:
   path: /docs
-  port: 8002
-  initialDelaySeconds: 10
-  periodSeconds: 15
+  port: 8000
+  initialDelaySeconds: 15
+  periodSeconds: 20
