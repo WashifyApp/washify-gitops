@@ -10,8 +10,8 @@ spec:
   strategy:
     type: BlueGreen
     blueGreen:
-      activeService: {{ include "frontend.fullname" . }}
-      previewService: {{ include "frontend.fullname" . }}-preview
+      activeService: frontend-service
+      previewService: frontend-service-preview
       autoPromotionEnabled: false # Requires manual approval in ArgoCD
   selector:
     matchLabels:
