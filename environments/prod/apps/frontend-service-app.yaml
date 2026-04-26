@@ -6,16 +6,25 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/WashifyApp/washify-gitops.git'
+    repoURL: https://github.com/WashifyApp/washify-gitops.git
     targetRevision: main
     path: charts/frontend
     helm:
       valueFiles:
+        - ../../environments/prod/values.yaml # Not used, we use specific values
         - values-prod.yaml
   destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: prod-env
+    server: https://kubernetes.default.svc
+    namespace: prod-ns
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+    - RespectIgnoreDifferences=true
+  ignoreDifferences:
+  - group: argoproj.io
+    kind: Rollout
+    jsonPointers:
+    - /spec/replicas
