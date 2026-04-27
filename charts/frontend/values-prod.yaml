@@ -3,7 +3,7 @@ namespace: prod-ns
 
 image:
   repository: ghcr.io/washifyapp/frontend-service
-  tag: sha-5e4490f
+  tag: sha-afb0739
   pullPolicy: Always
 
 service:
