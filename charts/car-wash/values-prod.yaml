@@ -30,7 +30,7 @@ configMap:
 
 secret:
   name: car-wash-secret
-  jwtSecret: "prod-secret-key"
+  jwtSecretGibberish: "AgA32KlNZmUAtEvKYmEFVdYRKZ8Fe/JOfK2y61SXb4sZDFIlGa83SqueZEsOdK4xcHQkCbaZoyeeHARCdoHa6Tv297WDEtVYNAMdojupZAwoCRx/fox5aPiESNLonRhj3uxuDvxj1oAD5iDWatx5bJQkEt2PeVPKf8wwGs0o9XjXe9QMo7xFXnkHQ4ChvKvcAng2rpgWtnctdO+O+ZFMGciqkLEVnfm+ZE1+VprcsQy9tno/7/EB8YEub4CV0FHGqb/boQn4vOMtM4BB1eYRj2MN96Q3SWW2W8HblU84ZCy1/BI/6L6s49V6V9u93AHOUNOG+SqQlbwlB3QbNPvBwCCjq9sVH+/q2nn8S0jvOIlqYkpC7NtXkn6Irtc8a7qt/Es7/813zmHtKUBIggObyTbD0FfwrcIV/J7rSAanUv1fNEtbZo/6Vmw1uuQUotRvKTvVxmLttAH+au27JXRZYFiFmmYn+7aM/o2MTtE1ySsT/1+NFtHdNoyCi6/JrGwrRCt+hHP1fmqrkjmBfnSDdsnprqVVgO6EtJAFPgmo58TJXwmLQfk0r40ilHYCptgC5g7rJ4E2pXCwHbWy/XYlKxVX/jv0JRtWbxjPCCJpJyV5RM6OjzMc/ZKzVcVKNysSDMzE5+6V5j1zI6XSwQf1NZj1p3egyW48/56PgyUIHjfQs9BR3wb+J4PLeQaA/DySk4dGMepFY3/uaQMJaMR1eT0="
 
 config:
   mongoUrl: "mongodb://mongodb:27017"
