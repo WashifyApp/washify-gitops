@@ -11,7 +11,7 @@ spec:
     blueGreen:
       activeService: frontend-service
       previewService: frontend-service-preview
-      autoPromotionEnabled: true # Requires manual approval in ArgoCD
+      autoPromotionEnabled: false
   selector:
     matchLabels:
       app: frontend-service
