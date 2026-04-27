@@ -40,6 +40,11 @@ secret:
   smtpServer: "smtp.gmail.com"
   smtpPort: "587"
 
+config:
+  mongoUrl: "mongodb://mongodb:27017"
+  smtpServer: "smtp.gmail.com"
+  smtpPort: "587"
+
 livenessProbe:
   path: /docs
   port: 8000
