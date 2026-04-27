@@ -2,8 +2,8 @@ replicaCount: 3
 namespace: prod-ns
 
 image:
-  repository: aravindroy1/washify-frontend
-  tag: latest
+  repository: ghcr.io/washifyapp/frontend-service
+  tag: sha-dc4d0ec
   pullPolicy: Always
 
 service:
