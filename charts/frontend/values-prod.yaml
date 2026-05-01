@@ -2,8 +2,8 @@ replicaCount: 3
 namespace: prod-ns
 
 image:
-  repository: ghcr.io/washifyapp/frontend-service
-  tag: sha-afb0739
+  repository: docker pull ghcr.io/washifyapp/frontend-service
+  tag: v2.0.0
   pullPolicy: Always
 
 service:
